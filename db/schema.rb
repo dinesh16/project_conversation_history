@@ -14,7 +14,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_05_144526) do
   create_table "conversation_histories", force: :cascade do |t|
     t.integer "project_id", null: false
     t.text "content"
-    t.string "type"
+    t.string "kind"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_conversation_histories_on_project_id"

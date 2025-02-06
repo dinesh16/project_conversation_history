@@ -1,0 +1,47 @@
+<style>
+  .container { max-width: 600px; margin: auto; font-family: Arial, sans-serif; }
+  h1 { font-size: 24px; font-weight: bold; margin-bottom: 10px; }
+  .status { font-weight: bold; }
+  .form-container { background: #fff; padding: 15px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+  .form-group { margin-bottom: 10px; }
+  label { font-weight: bold; display: block; margin-bottom: 5px; }
+  select, textarea { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+  .button { background: #007bff; color: white; padding: 8px 12px; border: none; border-radius: 4px; cursor: pointer; }
+  .button:hover { background: #0056b3; }
+  .comments { background: #f9f9f9; padding: 10px; border-radius: 5px; margin-top: 10px; }
+  .comment { margin-bottom: 5px; }
+</style>
+
+<div class="container">
+  <h1>
+    <%= @project.name %>: <span class="status"><%= @project.status %></span>
+  </h1>
+
+  <div class="form-container">
+    <%= form_with model: @project, local: true do |form| %>
+      <div class="form-group">
+        <%= form.label :status %>
+        <%= form.select :status, options_for_select(['New', 'In Progress', 'Completed'], @project.status) %>
+      </div>
+      <%= form.submit 'Change Status', class: "button" %>
+    <% end %>
+  </div>
+
+  <h2>Comments</h2>
+
+  <div class="form-container">
+    <%= form_with url: leave_comment_project_path(@project), method: :post, local: true do |form| %>
+      <div class="form-group">
+        <%= form.text_area :content, placeholder: 'Leave a comment...' %>
+      </div>
+      <%= form.submit 'Add Comment', class: "button" %>
+    <% end %>
+  </div>
+
+  <h4>Previous Comments:</h4>
+  <div class="comments">
+    <% @project.conversation_histories.each do |history| %>
+      <p class="comment"><strong><%= history.created_at.strftime("%B %d, %Y") %>:</strong> <%= history.content %></p>
+    <% end %>
+  </div>
+</div>

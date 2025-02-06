@@ -3,7 +3,7 @@ class CreateConversationHistories < ActiveRecord::Migration[8.0]
     create_table :conversation_histories do |t|
       t.references :project, null: false, foreign_key: true
       t.text :content
-      t.string :type
+      t.string :kind
 
       t.timestamps
     end
