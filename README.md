@@ -6,7 +6,7 @@
 
 - This Rails application enables users to add comments to projects and update project status.
 - The application provides a complete history of conversations, including comments and status changes for the project.
-- It uses Rails built-in SQLite3 database, with two projects pre-loaded for demonstration.
+- It uses Rails built-in SQLite3 database, with two projects will be loadded when run db seeds for demonstration.
 
 
 ## Setup
@@ -28,7 +28,12 @@
    bundle install
    ```
 
-3. Start the server:
+3. DB Setup:
+   ```
+   rails db:migrate && rails db:seed
+   ```
+
+4. Start the server:
    ```
    rails s
    ```

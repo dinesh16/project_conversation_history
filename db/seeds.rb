@@ -7,3 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+
+Project.create!(name: "First Time Buyers", status: 'New')
+Project.create!(name: "Buy to Let Properties", status: 'New')
