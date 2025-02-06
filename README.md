@@ -45,3 +45,6 @@ To run the test suite:
 ```
 rspec
 ```
+
+### Questions: 
+   [Link to Questions](docs/questions.md)
