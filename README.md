@@ -1,24 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description 
 
-Things you may want to cover:
+### Project Conversation History
 
-* Ruby version
+- This Rails application enables users to add comments to projects and update project status.
+- The application provides a complete history of conversations, including comments and status changes for the project.
+- It uses Rails built-in SQLite3 database, with two projects pre-loaded for demonstration.
 
-* System dependencies
 
-* Configuration
+## Setup
 
-* Database creation
+### Prerequisites
+- Ruby 3.3.5
+- Rails 8.0.1
+- Sqlite3
 
-* Database initialization
+### Installation
+1. Clone the repository:
+   ```
+   git clone git@github.com:dinesh16/project_conversation_history.git
+   cd project_conversation_history
+   ```
 
-* How to run the test suite
+2. Install dependencies:
+   ```
+   bundle install
+   ```
 
-* Services (job queues, cache servers, search engines, etc.)
+3. Start the server:
+   ```
+   rails s
+   ```
 
-* Deployment instructions
+Go to: `http://localhost:3000`.
 
-* ...
+## Testing
+To run the test suite:
+```
+rspec
+```

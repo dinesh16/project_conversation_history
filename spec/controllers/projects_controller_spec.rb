@@ -12,13 +12,13 @@ RSpec.describe ProjectsController, type: :controller do
 
   describe "PATCH #update" do
     context "with valid params" do
-      let(:valid_params) { { id: project.id, project: { status: "completed" } } }
+      let(:valid_params) { { id: project.id, project: { status: "Completed" } } }
 
       it "updates the project and adds conversation history if status changes" do
         allow_any_instance_of(ConversationHistoryService).to receive(:call).and_return(double(persisted?: true))
         patch :update, params: valid_params
         project.reload
-        expect(project.status).to eq("completed")
+        expect(project.status).to eq("Completed")
         expect(response).to redirect_to(project)
         expect(flash[:notice]).to eq("Project status updated.")
       end

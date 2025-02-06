@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root "projects#show"
+  root "projects#show", id: "1"
 end
