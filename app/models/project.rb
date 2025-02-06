@@ -3,4 +3,8 @@ class Project < ApplicationRecord
 
   validates :name, presence: true
   validates :status, presence: true
+
+  STATUSES = [ "New", "In Progress", "Completed" ].freeze
+
+  validates :status, inclusion: { in: STATUSES }
 end

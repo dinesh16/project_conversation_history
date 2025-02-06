@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update!(project_params)
-      content = "Status changed to #{@project.status}".freeze
+      content = "Status changed to: #{@project.status}".freeze
       add_conversation_history(content: content, kind: :status_update) if @project.saved_change_to_status?
 
       redirect_to @project, notice: "Project status updated."
